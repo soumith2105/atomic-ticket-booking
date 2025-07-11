@@ -37,10 +37,9 @@ async function createServer() {
     credentials: true,
   }));
 
-  
   // Rate limiting
   const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 10 * 60 * 1000, // 10 minutes
     max: process.env.NODE_ENV === 'production' ? 100 : 1000, // More restrictive in production
     message: 'Too many requests from this IP, please try again later.',
     standardHeaders: true,
